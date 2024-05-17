@@ -1,6 +1,6 @@
 {
   "engine":{
-    "node": "20.12.2"
+    "node": "20.11.0"
   },
   "name": "wonderlust",
   "version": "1.0.0",
