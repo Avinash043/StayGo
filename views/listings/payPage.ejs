@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate") -%>
+
+
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+    <form action="/listings/<%= listing._id %>/pay" method="post">
+        <h3 class="offset-5">Checkout</h3>
+        <label for="title" class="form-label">Username</label>
+        <input name="listing[title]" value="<%= listing.owner.username %>" type="text" class="form-control" disabled readonly/>
+        <br>
+        <label for="title" class="form-label">Email</label>
+        <input name="listing[title]" value="<%= listing.owner.email %>" type="text" class="form-control" disabled readonly/>
+        <br>
+        <label for="title" class="form-label">Total payable amount</label>
+        <input name="listing[title]" value="<%= listing.price %>" type="text" class="form-control" disabled readonly/>
+        <button class="btn btn-dark edit-btn mt-3 offset-6">Pay</button>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
+            data-key="<%=  process.env.STRIPE_SECRET_KEY %>"
+            data-amount="<%= parseInt(listing.price)*100 %>"
+            data-currency="inr"
+            data-name="<%= listing.owner.username %>"
+            data-description="<%= listing.title %>"
+            data-locale="auto">
+        </script>
+         <script>
+            // Hide default stripe button, be careful there if you
+            // have more than 1 button of that class
+            document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+        </script>
+    </form>
+    </div>
+</div>
+
+
+<!-- <script src="../../public/js/"></script> -->
