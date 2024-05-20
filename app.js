@@ -18,11 +18,11 @@ const User = require("./models/user.js");
 
 const listings= require("./routes/listing.js");
 const review= require("./routes/review.js");
-const userRouter= require("./routes/userrouter.js");
+const userRouter= require("./routes/userRouter.js");
 //const paymentRoute = require('./routes/paymentRoute');
 
 
-//const MONGO_URL = "mongodb://127.0.0.1:27017/wonderlust";
+//const dbUrl = "mongodb://127.0.0.1:27017/wonderlust";
 
 const dbUrl= process.env.ATLASDB_URL;
 

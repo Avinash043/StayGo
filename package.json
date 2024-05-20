@@ -1,11 +1,11 @@
 {
   "engine":{
-    "node": "20.11.0"
+    "node": "20.13.1"
   },
   "name": "wonderlust",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

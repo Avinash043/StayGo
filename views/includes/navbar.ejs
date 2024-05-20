@@ -54,11 +54,11 @@
         </div>
         <div class="navbar-nav ms-auto">
           <button class="btn btn-search btn-dark btn-new"><a class="nav-link" href="/listings/new" >Your StayGo</a></button>
-          <% if(!currUser) { %>
+          <% if(! currUser ) { %>
             <a class="nav-link" href="/signup"><b>Sign Up</b></a>
             <a class="nav-link" href="/login"><b>Log In</b></a>
           <% } %>
-          <% if(currUser){ %>
+          <% if( currUser ){ %>
           <a class="nav-link" href="/logout"><b>Log Out</b></a>
           <% } %>
         </div>
