@@ -21,10 +21,9 @@ const review= require("./routes/review.js");
 const userRouter= require("./routes/userRouter.js");
 //const paymentRoute = require('./routes/paymentRoute');
 
+const dbUrl = "mongodb://127.0.0.1:27017/wonderlust";
 
-//const dbUrl = "mongodb://127.0.0.1:27017/wonderlust";
-
-const dbUrl= process.env.ATLASDB_URL;
+//const dbUrl= process.env.ATLASDB_URL;
 
 main().then(()=>{
     console.log("connect");

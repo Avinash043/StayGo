@@ -7,12 +7,16 @@ body{
 
 .container{
     flex: 1;
+    
 }
 
 /* navbar */
 .navbar{
     height: 5rem;
     background-color: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 .fa-building{
     color: #fe424d;
@@ -22,6 +26,10 @@ body{
     color: #222222 !important;
 }
 
+.new-link{
+    color: white !important;
+    text-decoration: none;
+}
 /* footer */
 .f-info-socials{
     color: #222222;
@@ -52,11 +60,15 @@ body{
 .f-info{
     text-align: center;
     height: 8rem;
-    background-color: #ebebeb;
+    background-color: hsl(0, 0%, 92%);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: space-evenly;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
 /* Card  */
@@ -129,6 +141,7 @@ body{
     height: 300px;
     width: 80vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
 }
 
 .price-sec{
@@ -140,4 +153,5 @@ body{
 .shadow-card{
     border: 1px white solid;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
 }
