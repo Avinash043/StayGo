@@ -19,7 +19,6 @@ const User = require("./models/user.js");
 const listings= require("./routes/listing.js");
 const review= require("./routes/review.js");
 const userRouter= require("./routes/userRouter.js");
-//const paymentRoute = require('./routes/paymentRoute');
 
 const dbUrl = "mongodb://127.0.0.1:27017/wonderlust";
 
@@ -43,9 +42,7 @@ app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
-// app.get("/",(req,res) =>{
-//     res.send("hii");
-// });
+
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto:{
@@ -89,19 +86,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.get("/demouser",async (req, res) =>{
-//   let fakeuser =  new User({
-//     email: "a@gmail.com",
-//     username: "delta",
-//   });
-//   let registeredUser = await User.register(fakeuser,"hello");
-//   res.send(registeredUser);
-// });
-
 app.use("/listings", listings);
 app.use("/listings/:id/reviews", review);
 app.use("/", userRouter);
-//app.use('/',paymentRoute);
 
 app.all("*",(req ,res,next)=>{
     next(new ExpressError(404, "Page Not Found!"));
@@ -110,46 +97,8 @@ app.all("*",(req ,res,next)=>{
 app.use((err,req,res,next)=>{
     let {statusCode = 500, message = "Something went wrong" } = err;
     res.status(statusCode).render("error.ejs",{ message });
-  //  res.status(statusCode).send(message);
+  
 });
-
-// app.get('/listings/<%= listing._id %>/payment', function (req, res) {
-//   res.render('payPage', {
-//       key: process.env.PUBLISHABLE_KEY
-//   })
-// });
-
-// app.post('/listings/<%= listing._id %>/pay', function (req, res) {
-
-//   stripe.customers.create({
-//       email: req.body.stripeEmail,
-//       source: req.body.stripeToken,
-//       name: 'John Doe',
-//       address: {
-//           line1: '123 Main Street',
-//           postal_code: '12345',
-//           city: 'Anytown',
-//           state: 'California',
-//           country: 'USA',
-//       }
-//   })
-//       .then((customer) => {
-
-//           return stripe.charges.create({
-//               amount: 3500,
-//               description: 'Web Development Service',
-//               currency: 'USD',
-//               customer: customer.id
-//           });
-//       })
-//       .then((charge) => {
-//           res.send("<h2>Success</h2>")
-//       })
-//       .catch((err) => {
-//           res.send(err)
-//       });
-// })
-
 
 app.listen(8000,() =>{
     console.log("server is listening tp 8000");

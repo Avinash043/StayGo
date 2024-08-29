@@ -26,11 +26,11 @@ module.exports.showListing = async (req, res) => {
       req.flash("error","Listing you requested for does not found");
       res.redirect("/listings");
     }
-   // console.log(listing);
     res.render("listings/show.ejs", { listing });
 };
 
 module.exports.createListing = async (req, res) => {
+  console.log(req);
     let response= await geocodingClient
         .forwardGeocode({
             query: req.body.listing.location,
@@ -47,7 +47,6 @@ module.exports.createListing = async (req, res) => {
 
     newListing.geometry=  response.body.features[0].geometry;
     let savedListing= await newListing.save();
-  //  console.log(savedListing);
     req.flash("success","New Listing created");
     res.redirect("/listings");
 };
@@ -83,7 +82,7 @@ module.exports.updateListing = async (req, res) => {
 module.exports.destroyListing = async (req, res) => {
     let { id } = req.params;
     let deletedListing = await Listing.findByIdAndDelete(id);
-    console.log(deletedListing);
+    
     req.flash("success","Listing deleted");
     res.redirect("/listings");
 };
@@ -105,11 +104,3 @@ module.exports.paymentPage = async (req,res) =>{
     res.render("listings/payPage.ejs",{listing});
 };
 
-// module.exports.pay = async (req,res) =>{
-//     let { id } = req.params;
-//     const listing = await Listing.findById(id);
-//     const paymentIntents = await stripe.paymentIntents.create({
-//         amount: listing.price,
-//         currency: 'usd',
-//     });
-// }
