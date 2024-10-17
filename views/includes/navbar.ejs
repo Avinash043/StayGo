@@ -54,7 +54,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/listings">StayGo</a>
+        <a class="nav-link" href="/">StayGo</a>
       </div>
       <div class="navbar-nav ms-auto">
         <form class="d-flex">
@@ -72,12 +72,13 @@
         <button class="btn btn-search btn-new">
           <a class="new-link" href="/listings/new">Your StayGo</a>
         </button>
-        <% if(curUser) { %>
-        <a class="nav-link" href="/logout"><b>Log Out</b></a>
-        <% } else { %>
-        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-        <a class="nav-link" href="/login"><b>Log In</b></a>
-        <% } %>
+        <% if(currUser ) { %>
+          <a class="nav-link" href="/logout"><b>Log Out</b></a>
+          <% } else { %>
+          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Log In</b></a>
+         <% } %>
+   
       </div>
     </div>
   </div>

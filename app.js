@@ -1,7 +1,7 @@
-if(process.env.NODE_ENV != "production"){
+
   require("dotenv").config();
-}
-require("dotenv").config();
+
+
 const express = require("express");
 const app = express();
 const mongoose= require("mongoose");
@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
-
+app.use(express.static('public'));
 
 const store = MongoStore.create({
   mongoUrl: dbUrl,
@@ -67,8 +67,6 @@ const sessionOptions = {
   },
 };
 
-
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -82,8 +80,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
-  res.locals.curUser = req.user;
- 
+  res.locals.currUser = req.user;
   next();
 });
 
@@ -101,6 +98,6 @@ app.use((err,req,res,next)=>{
   
 });
 
-app.listen(8000,() =>{
-    console.log("server is listening tp 8000");
+app.listen(process.env.PORT || 4000,() =>{
+    console.log("server is listening");
 });

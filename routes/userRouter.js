@@ -3,7 +3,6 @@ const wrapAsync = require("../utils/wrapAsync");
 const passport = require("passport");
 const { saveRedirectUrl } = require("../middleware");
 const router= express.Router();
-const User = require("../models/user.js");
 
 const userController = require("../controller/users.js");
 
@@ -22,7 +21,10 @@ router
         userController.login
     );
 
+router.route("/").get(userController.home)
+
 router.get("/logout",userController.logout );
+
 
 
 

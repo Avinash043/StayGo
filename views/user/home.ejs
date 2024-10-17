@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate") -%>
+
+<style>
+  header {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    max-width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-radius: 2rem;
+  }
+  .container {
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+  .exploreBtn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    text-decoration: none;
+  }
+</style>
+<header class="hero" style="background-image: url(/bg.jpg)">
+  <div class="container-fluid container">
+    <h1>Enjoy Your Dream Vacation</h1>
+    <h4>Find luxury and comfort in every stay</h4>
+    <a class="exploreBtn" href="/listings">Explore</a>
+  </div>
+</header>
